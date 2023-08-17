@@ -5,6 +5,7 @@ import {
   Image,
   Spinner,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 
@@ -23,6 +24,9 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
     <>
       {/* {loading &&
         skeletons.map((skeleton) => <GenreListSkeleton key={skeleton} />)} */}
+      <Heading fontSize={"2xl"} marginBottom={3}>
+        Genres
+      </Heading>
 
       <List>
         {data.map((genre) => (
@@ -30,11 +34,14 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
             <HStack>
               <Image
                 boxSize="32px"
+                objectFit={"cover"}
                 borderRadius={8}
                 src={genre.image_background}
               ></Image>
               <Button
                 variant="link"
+                whiteSpace={"normal"}
+                textAlign={"left"}
                 onClick={() => onSelectGenre(genre)}
                 fontSize={"lg"}
                 fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}

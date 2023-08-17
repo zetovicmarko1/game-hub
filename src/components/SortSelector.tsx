@@ -17,7 +17,7 @@ const SortSelector = ({ onOrder, sortOrder }: Props) => {
     { value: "-rating", label: "Average Rating" },
   ];
   const currentSort = sortOrders.find((order) => order.value === sortOrder);
-  const { data, error } = usePlaforms();
+  const { error } = usePlaforms();
   if (error) return null;
 
   return (
